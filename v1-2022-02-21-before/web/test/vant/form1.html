@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>身份认证补充</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<!-- 引入样式文件 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vant@2.12/lib/index.css" />
+<style type="text/css">
+
+</style>
+</head>
+<body>
+<div id="app">
+	<van-row type="flex" justify="space-between">
+		<van-form @submit="onSubmit">
+			<van-col span="24">
+				<van-field
+					v-model="realname"
+					name="realname"
+					type="text"
+					required
+					label="姓名"
+					placeholder="姓名"
+					autocomplete="off"
+					:rules="[{required: true, message: '请输入姓名'}]"
+				/>
+			</van-col>
+			<van-col span="24">
+				<van-field
+					v-model="mobile"
+					name="mobile"
+					type="tel"
+					required
+					label="手机号"
+					placeholder="手机号"
+					autocomplete="off"
+				/>
+			</van-col>
+			<van-col span="24">
+				<van-field
+					v-model="idcardno"
+					name="idcardno"
+					type="digit"
+					required
+					label="身份证号"
+					placeholder="身份证号"
+					autocomplete="off"
+				/>
+			</van-col>
+			<van-col span="24">
+				<van-field name="uploader" required label="身份证人像面">
+				  <template #input>
+				    <van-uploader
+				    	v-model="idcardimg1"
+				    	:after-read="afterRead"
+						:max-count="1"
+						:max-size="fileMaxSize"
+						@oversize="onOversize"
+				    />
+				  </template>
+				</van-field>
+			</van-col>
+			<van-col span="24">
+				<van-field name="uploader" required label="身份证国徽面">
+				  <template #input>
+				    <van-uploader
+				    	v-model="idcardimg2"
+				    	:after-read="afterRead"
+						:max-count="1"
+						:max-size="fileMaxSize"
+						@oversize="onOversize"
+				    />
+				  </template>
+				</van-field>
+			</van-col>
+		</van-form>
+	</van-row>
+</div>
+<!-- 引入 Vue 和 Vant 的 JS 文件 -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6/dist/vue.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vant@2.12/lib/vant.min.js"></script>
+<script>
+// 在 #app 标签下渲染一个按钮组件
+new Vue({
+	el: '#app',
+	data: {
+		realname: '',
+		mobile: '',
+		idcardno: '',
+		fileMaxSize: 500 * 1024, // 允许上传最大图片，单位byte
+		idcardimg1: [], // 身份证人像面
+		idcardimg2: [], // 身份证国徽面
+	},
+	methods: {
+		onSubmit: function(values) {
+			console.log('submit: ', values);
+		},
+		// 上传前置处理，需要返回boolea值
+		/*beforeRead(file) {
+			console.log('beforeRead: ', file);
+			if (file.type !== 'image/jpeg') {
+				vant.Toast('请上传 jpg 格式图片');
+				return false;
+			}
+			return true;
+		},*/
+		afterRead(file) {
+	      // 此时可以自行将文件上传至服务器
+	      // file.status = 'uploading';
+	      // file.message = '上传中...';
+	      console.log('afterRead: ', file);
+	    },
+	    onOversize(file) {
+	    	console.log('onOversize: ', file);
+	    	vant.Toast('文件大小不能超过'+ this.fileMaxSize/1024 +'kb');
+	    }
+	}
+});
+
+// 调用函数组件，弹出一个 Toast
+// vant.Toast('提示');
+
+// 通过 CDN 引入时不会自动注册 Lazyload 组件
+// 可以通过下面的方式手动注册
+Vue.use(vant.Lazyload);
+</script>
+</body>
+</html>

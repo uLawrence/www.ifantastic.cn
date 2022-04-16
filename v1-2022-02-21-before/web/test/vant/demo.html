@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>vant demo</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<!-- 引入样式文件 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vant@2.12/lib/index.css" />
+</head>
+<body>
+<div id="app">
+	<van-cell is-link @click="showPopup">展示弹出层</van-cell>
+	<van-popup v-model="show">内容</van-popup>
+</div>
+<!-- 引入 Vue 和 Vant 的 JS 文件 -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6/dist/vue.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vant@2.12/lib/vant.min.js"></script>
+<script>
+// 在 #app 标签下渲染一个按钮组件
+new Vue({
+	el: '#app',
+	// template: `<van-button>按钮</van-button>`,
+	data: {
+		show: false,
+		fieldValue: '',
+		cascaderValue: '',
+		// 选项列表，children 代表子选项，支持多级嵌套
+		options: [
+			{
+				text: '浙江省',
+				value: '330000',
+				children: [{ text: '杭州市', value: '330100' }],
+			},
+			{
+				text: '江苏省',
+				value: '320000',
+				children: [{ text: '南京市', value: '320100' }],
+			},
+		],
+	},
+	methods: {
+		// 全部选项选择完毕后，会触发 finish 事件
+		onFinish({ selectedOptions }) {
+			this.show = false;
+			this.fieldValue = selectedOptions.map((option) => option.text).join('/');
+		},
+		showPopup() {
+			this.show = true;
+		},
+	}
+});
+
+// 调用函数组件，弹出一个 Toast
+// vant.Toast('提示');
+
+// 通过 CDN 引入时不会自动注册 Lazyload 组件
+// 可以通过下面的方式手动注册
+Vue.use(vant.Lazyload);
+</script>
+</body>
+</html>

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>iSpeak 客户端版本</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<style type="text/css">
+		body {
+			background: #e9e6e6;
+		}
+
+		.navbar .logo {
+			height: 30px;
+		}
+
+		.jumbotron {
+			margin: 60px 0 0 0;
+			border-radius: 0;
+			/* box-shadow: 2px 2px 8px 5px #ccc; */
+		}
+
+		.jumbotron.bg-info {
+			background: #507bb4 !important;
+		}
+
+		.container {
+			padding: 15px 0;
+		}
+
+		.main-wrap {
+			margin: 15px 0;
+		}
+
+		.main-wrap .card {
+			width: 265px;
+			margin: 10px 10px;
+		}
+
+		.main-wrap .card-body p {
+			overflow: hidden;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+		}
+	</style>
+</head>
+
+<body>
+	<!-- 头部导航栏 start -->
+	<nav class="navbar navbar-expand-sm justify-content-center bg-dark navbar-dark fixed-top">
+		<a class="navbar-brand" href="/static/">
+			<img src="/static/assets/icons/logo.png" alt="Logo" class="logo">
+		</a>
+		<!-- Links -->
+		<ul class="navbar-nav">
+			<li class="nav-item">
+				<a class="nav-link" href="/static/labs/">Labs</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="/static/tools/">Tools</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="/static/ispeak/">iSpeak</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="/static/manual/">Manual</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="/static/live">Live</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="/static/echarts/">Echarts</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#">Link 6</a>
+			</li>
+			<!-- Dropdown -->
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+					more
+				</a>
+				<div class="dropdown-menu">
+					<a class="dropdown-item" href="#">Link 1</a>
+					<a class="dropdown-item" href="#">Link 2</a>
+					<a class="dropdown-item" href="#">Link 3</a>
+				</div>
+			</li>
+		</ul>
+		<!-- 登录账号信息 start -->
+		<!-- <span class="navbar-text">欢迎xxx</span> -->
+		<!-- 登录账号信息 end -->
+
+		<!-- 导航栏搜索框 start -->
+		<!-- <form class="form-inline">
+		<input class="form-control" type="text" placeholder="Search">
+		<button class="btn btn-success" type="submit">Search</button>
+	</form> -->
+		<!-- 导航栏搜索框 end -->
+	</nav>
+	<!-- 头部导航栏 end -->
+
+	<!-- 巨幕 start -->
+	<div class="jumbotron text-center bg-info text-white">
+		<h1>iFantastic Lab</h1>
+		<p>Great Vision, Vision Future！</p>
+	</div>
+	<!-- 巨幕 end -->
+	<div class="container">
+		<nav class="breadcrumb">
+			<a class="breadcrumb-item" href="/static/">主页</a>
+			<a class="breadcrumb-item" href="/static/ispeak">iSpeak</a>
+			<span class="breadcrumb-item active">客户端版本</span>
+		</nav>
+		<h4>iSpeak 客户端版本</h4>
+		<div class="row main-wrap">
+			<table class="table table-hover table-condensed table-bordered table-sm">
+				<caption>clientversionconfig 客户端版本</caption>
+				<thead class="thead-light">
+					<tr>
+						<th scope="col">name<br />版本名称</th>
+						<th scope="col">vertyp<br />版本类型，exe=0，ini=1，默认值0</th>
+						<th scope="col">version<br />版本号，比如：1.0.13.1022</th>
+						<th scope="col">partneridlist<br />合作伙伴列表</th>
+						<th scope="col">state<br />版本类型，正常=0，静默升级=1，禁用=2，默认值0</th>
+						<th scope="col">adddate<br />添加时间</th>
+						<th scope="col">client_type<br />客户端类型：1-PC, 2-IOS, 4-iPad, 8-web, 16-Android，默认值1</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>exe2013-02-21(精简版)</td>
+						<td>0</td>
+						<td>1.1.14.124</td>
+						<td>0,1,10001</td>
+						<td>0</td>
+						<td>2013/10/23 16:39:39</td>
+						<td>1</td>
+					</tr>
+					<tr>
+						<td>ini-1288(精简版,勿删,勿禁)</td>
+						<td>1</td>
+						<td>8.0.2014.1288</td>
+						<td>0,1,10001</td>
+						<td>0</td>
+						<td>2014/12/5 14:58:08</td>
+						<td>1</td>
+					</tr>
+					<tr>
+						<td>exe-2015-03-27</td>
+						<td>0</td>
+						<td>8.0.2015.0327</td>
+						<td>0,1,10001</td>
+						<td>0</td>
+						<td>2015/3/27 15:53:04</td>
+						<td>1</td>
+					</tr>
+					<tr>
+						<td>ini-debug</td>
+						<td>1</td>
+						<td>1.0.2013.8888</td>
+						<td>0,1,127,10001</td>
+						<td>0</td>
+						<td>2015/4/7 12:13:10</td>
+						<td>1</td>
+					</tr>
+					<tr>
+						<td>FlashFish-exe-2016-1</td>
+						<td>0</td>
+						<td>1.0.2016.1123</td>
+						<td>127,10001</td>
+						<td>0</td>
+						<td>2016/11/23 11:46:31</td>
+						<td>1</td>
+					</tr>
+					<tr>
+						<td>ios_105</td>
+						<td>0</td>
+						<td>2.0.7</td>
+						<td>126</td>
+						<td>0</td>
+						<td>2016/12/22 11:01:47</td>
+						<td>2</td>
+					</tr>
+					<tr>
+						<td>android_107</td>
+						<td>0</td>
+						<td>2.0.9</td>
+						<td>126</td>
+						<td>0</td>
+						<td>2016/12/22 11:03:09</td>
+						<td>16</td>
+					</tr>
+					<tr>
+						<td>ini-1.0.1704.1502(R)</td>
+						<td>1</td>
+						<td>1.0.1704.1502</td>
+						<td>127,10001</td>
+						<td>0</td>
+						<td>2017/4/17 18:05:06</td>
+						<td>1</td>
+					</tr>
+					<tr>
+						<td>ini-8.1.1812.1902</td>
+						<td>1</td>
+						<td>8.1.1812.1902</td>
+						<td>0,1</td>
+						<td>2</td>
+						<td>2018/12/20 10:26:58</td>
+						<td>1</td>
+					</tr>
+					<tr>
+						<td>ini-8.1.1903.1702</td>
+						<td>1</td>
+						<td>8.1.1903.1702</td>
+						<td>0,1</td>
+						<td>2</td>
+						<td>2019/3/18 16:40:20</td>
+						<td>1</td>
+					</tr>
+					<tr>
+						<td>ini-8.1.1903.2191</td>
+						<td>1</td>
+						<td>8.1.1903.2191</td>
+						<td>0,1</td>
+						<td>2</td>
+						<td>2019/3/21 9:26:53</td>
+						<td>1</td>
+					</tr>
+					<tr>
+						<td>ini-8.1.1903.2902</td>
+						<td>1</td>
+						<td>8.1.1903.2902</td>
+						<td>0,1</td>
+						<td>2</td>
+						<td>2019/3/29 14:26:40</td>
+						<td>1</td>
+					</tr>
+					<tr>
+						<td>ini-8.1.1904.1002</td>
+						<td>1</td>
+						<td>8.1.1904.1002</td>
+						<td>0,1</td>
+						<td>2</td>
+						<td>2019/4/10 20:25:13</td>
+						<td>1</td>
+					</tr>
+					<tr>
+						<td>ini-8.1.1905.2001</td>
+						<td>1</td>
+						<td>8.1.1905.2001</td>
+						<td>0,1</td>
+						<td>2</td>
+						<td>2019/5/20 17:50:37</td>
+						<td>1</td>
+					</tr>
+					<tr>
+						<td>ini-8.1.1905.2404</td>
+						<td>1</td>
+						<td>8.1.1905.2404</td>
+						<td>0,1</td>
+						<td>2</td>
+						<td>2019/5/24 20:02:51</td>
+						<td>1</td>
+					</tr>
+					<tr>
+						<td>ini-8.1.1906.2403</td>
+						<td>1</td>
+						<td>8.1.1906.2403</td>
+						<td>0,1</td>
+						<td>2</td>
+						<td>2019/6/24 18:00:12</td>
+						<td>1</td>
+					</tr>
+					<tr>
+						<td>ini-8.1.1907.2901</td>
+						<td>1</td>
+						<td>8.1.1907.2901</td>
+						<td>0,1,10001</td>
+						<td>0</td>
+						<td>2019/7/29 16:31:01</td>
+						<td>1</td>
+					</tr>
+					<tr>
+						<td>ini-8.1.1907.2902</td>
+						<td>1</td>
+						<td>8.1.1907.2902</td>
+						<td>0,1,10001</td>
+						<td>0</td>
+						<td>2019/7/29 16:31:08</td>
+						<td>1</td>
+					</tr>
+					<tr>
+						<td>ini-8.1.1908.0601</td>
+						<td>1</td>
+						<td>8.1.1908.0601</td>
+						<td>0,1,10001</td>
+						<td>0</td>
+						<td>2019/8/8 10:34:42</td>
+						<td>1</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<!-- 底部导航栏 start -->
+	<nav class="navbar navbar-expand-sm justify-content-center bg-dark navbar-dark">
+		<!-- Links -->
+		<ul class="navbar-nav">
+			<li class="nav-item">
+				<a class="nav-link" href="javascript:;">Link 1</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="javascript:;">Link 2</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="javascript:;">Link 3</a>
+			</li>
+		</ul>
+	</nav>
+	<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>

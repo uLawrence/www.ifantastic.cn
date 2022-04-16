@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>随机密码、随机数生成器</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="../favicon.ico">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <style type="text/css">
+        body {
+            background: #e9e6e6;
+        }
+
+        .navbar .logo {
+            height: 30px;
+        }
+
+        .jumbotron {
+            margin: 60px 0 0 0;
+            border-radius: 0;
+            /* box-shadow: 2px 2px 8px 5px #ccc; */
+        }
+
+        .jumbotron.bg-info {
+            background: #507bb4 !important;
+        }
+
+        .container {
+            padding: 15px 0;
+        }
+
+        .main-wrap {
+            margin: 15px 0;
+        }
+
+        .main-div {
+            min-height: 600px;
+        }
+
+        #content {
+            background-color: #272822;
+            color: #F8F8F2;
+            border-radius: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 头部导航栏 start -->
+    <nav class="navbar navbar-expand-sm justify-content-center bg-dark navbar-dark fixed-top">
+        <a class="navbar-brand" href="/static/">
+            <img src="/static/assets/icons/logo.png" alt="Logo" class="logo">
+        </a>
+        <!-- Links -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/static/labs/">Labs</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/static/tools/">Tools</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/static/ispeak/">iSpeak</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/static/manual/">Manual</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/static/live">Live</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/static/echarts/">Echarts</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link 6</a>
+            </li>
+            <!-- Dropdown -->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                    地图/定位
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">地图</a>
+                    <a class="dropdown-item" href="#">定位</a>
+                    <a class="dropdown-item" href="#">3D模型</a>
+                    <a class="dropdown-item" href="#">室内地图</a>
+                </div>
+            </li>
+        </ul>
+        <!-- 登录账号信息 start -->
+        <!-- <span class="navbar-text">欢迎xxx</span> -->
+        <!-- 登录账号信息 end -->
+
+        <!-- 导航栏搜索框 start -->
+        <!-- <form class="form-inline">
+            <input class="form-control" type="text" placeholder="Search">
+            <button class="btn btn-success" type="submit">Search</button>
+        </form> -->
+        <!-- 导航栏搜索框 end -->
+    </nav>
+    <!-- 头部导航栏 end -->
+
+    <!-- 巨幕 start -->
+    <div class="jumbotron text-center bg-info text-white">
+        <h1>iFantastic Lab</h1>
+        <p>Great Vision, Vision Future！</p>
+    </div>
+    <!-- 巨幕 end -->
+
+    <div class="container">
+        <nav class="breadcrumb">
+            <a class="breadcrumb-item" href="/static/">Home</a>
+            <a class="breadcrumb-item" href="/static/tools/">Tools</a>
+            <span class="breadcrumb-item active">随机密码、随机数生成器</span>
+        </nav>
+        <div class="main-wrap">
+            <div class="page-header text-center">
+                <h4>随机密码、随机数生成器</h4>
+            </div>
+            <div class="main-div container">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="contain-chars">使用字符:</label>
+                        <div class="col-sm-10">
+                            <label class="checkbox-inline"><input id="input-number" type="checkbox" checked>0-9</label>
+                            <label class="checkbox-inline"><input id="input-uppercase" type="checkbox"
+                                    checked>A-Z</label>
+                            <label class="checkbox-inline"><input id="input-lowercase" type="checkbox"
+                                    checked>a-z</label>
+                            <label class="checkbox-inline"><input id="input-specialchar"
+                                    type="checkbox">~!@#$%^&*()_+</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="exclude-chars">排除字符:</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" id="input-exclude" type="text"
+                                placeholder="排除字符，如1，0，i，l，o，O等易混淆字符">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="repeat-chars">是否重复:</label>
+                        <div class="col-sm-10">
+                            <label class="checkbox-inline"><input id="input-repeat" type="checkbox"
+                                    value="option1">字符不重复(生成长度不超过使用字符数量时起作用)</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="length-chars">生成长度:</label>
+                        <div class="col-sm-10">
+                            <select id="input-length" class="form-control">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
+                                <option>10</option>
+                                <option>11</option>
+                                <option>12</option>
+                                <option>13</option>
+                                <option>14</option>
+                                <option>15</option>
+                                <option selected>16</option>
+                                <option>17</option>
+                                <option>18</option>
+                                <option>19</option>
+                                <option>20</option>
+                                <option>21</option>
+                                <option>22</option>
+                                <option>23</option>
+                                <option>24</option>
+                                <option>25</option>
+                                <option>26</option>
+                                <option>27</option>
+                                <option>28</option>
+                                <option>29</option>
+                                <option>30</option>
+                                <option>31</option>
+                                <option>32</option>
+                                <option>33</option>
+                                <option>34</option>
+                                <option>35</option>
+                                <option>36</option>
+                                <option>37</option>
+                                <option>38</option>
+                                <option>39</option>
+                                <option>40</option>
+                                <option>41</option>
+                                <option>42</option>
+                                <option>43</option>
+                                <option>44</option>
+                                <option>45</option>
+                                <option>46</option>
+                                <option>47</option>
+                                <option>48</option>
+                                <option>49</option>
+                                <option>50</option>
+                                <option>51</option>
+                                <option>52</option>
+                                <option>53</option>
+                                <option>54</option>
+                                <option>55</option>
+                                <option>56</option>
+                                <option>57</option>
+                                <option>58</option>
+                                <option>59</option>
+                                <option>60</option>
+                                <option>61</option>
+                                <option>62</option>
+                                <option>63</option>
+                                <option>64</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="quantity-chars">生成数量:</label>
+                        <div class="col-sm-10">
+                            <select id="input-quantity" class="form-control">
+                                <option>1</option>
+                                <option>2</option>
+                                <option selected>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
+                                <option>10</option>
+                                <option>15</option>
+                                <option>20</option>
+                                <option>25</option>
+                                <option>30</option>
+                                <option>35</option>
+                                <option>40</option>
+                                <option>45</option>
+                                <option>50</option>
+                                <option>55</option>
+                                <option>60</option>
+                                <option>65</option>
+                                <option>70</option>
+                                <option>75</option>
+                                <option>80</option>
+                                <option>85</option>
+                                <option>90</option>
+                                <option>95</option>
+                                <option>100</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="quantity-chars">生成结果:</label>
+                        <div class="col-sm-10">
+                            <textarea id="input-result" class="form-control" cols="30" rows="10"
+                                spellcheck="false"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button class="btn btn-primary btn-generate" type="button">生成(generate)</button>
+                            <button class="btn btn-secondary btn-copy" type="button"
+                                data-clipboard-target="#input-result" data-clipboard-action="copy"
+                                alt="Copy to clipboard">复制(copy)</button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <div class="form-group col-sm-12">
+                                <div id="res-desc" class="alert" role="alert" style="display:none;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <p>密码是一种用来混淆的技术，使用者希望将正常的（可识别的）信息转变为无法识别的信息。但这种无法识别的信息部分是可以再加工并恢复和破解的。密码在中文里是“口令”（password）的通称。
+                        </p>
+                        <p>登录网站、电子邮箱和银行取款时输入的“密码”其实严格来讲应该仅被称作“口令”，因为它不是本来意义上的“加密代码”，但是也可以称为秘密的号码。</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <!-- 底部导航栏 start -->
+    <nav class="navbar navbar-expand-sm justify-content-center bg-dark navbar-dark">
+        <!-- Links -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:;">Link 1</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:;">Link 2</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:;">Link 3</a>
+            </li>
+        </ul>
+    </nav>
+    <!-- 底部导航栏 end -->
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="/static/assets/js/clipboard.js/2.0.4/clipboard.min.js"></script>
+    <script>
+        $(document).on('click', '.btn-generate', function () {
+            var conf = { "number": false, "uppercase": false, "lowercase": false, "specialchar": false, "repeat": true },
+                _excludeStr = '', _len = 0, _quantity = 0, res = [];
+            if ($('#input-number').prop('checked')) conf.number = true;
+            if ($('#input-uppercase').prop('checked')) conf.uppercase = true;
+            if ($('#input-lowercase').prop('checked')) conf.lowercase = true;
+            if ($('#input-specialchar').prop('checked')) conf.specialchar = true;
+            if (!conf.number && !conf.uppercase && !conf.lowercase && !conf.specialchar) {
+                return showRes('请选择使用字符', 'alert-danger');
+            }
+            _excludeStr = $('#input-exclude').val().replace(/^[ ]+$/gm, '');
+            if (_excludeStr.length > 0) conf.excludechar = _excludeStr;
+            if ($('#input-repeat').prop('checked')) conf.repeat = false;
+
+            _len = parseInt($('#input-length').val());
+            _quantity = parseInt($('#input-quantity').val());
+
+            for (var i = 0; i < _quantity; i++) {
+                res.push(generateRandomStr(_len, conf));
+            }
+            $('#input-result').val(res.join("\n"));
+            showRes('随机数已生成', 'alert-success');
+        }).ready(function () {
+            var clipboard = new ClipboardJS('.btn-copy');
+            // if ($('#input-result').val().length < 1) {
+            //     showRes('内容为空，请先点击生成后复制', 'alert-success');
+            // }
+            clipboard.on('success', function (e) {
+                //console.info('Trigger:', e.trigger);
+                //console.info('Action:', e.action);
+                //console.info('Text:', e.text);
+                //e.clearSelection();
+                //clipboard.on('error', function(e) {
+                //    console.error('Action:', e.action);
+                //    console.error('Trigger:', e.trigger);
+                //});
+                showRes('已复制', 'alert-success');
+            });
+
+        });
+
+        function showRes(str, flag) {
+            $('#res-desc').removeClass('alert-success alert-danger').addClass(flag).text(str).show(200);
+        }
+
+        function generateRandomStr(len, conf) {
+            var _number = '0123456789',
+                _upperCase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+                _lowerCase = 'abcdefghijklmnopqrstuvwxyz',
+                _specialChar = '~!@#$%^&*()_+',
+                _defaultConf = {
+                    "number": true, // 是否包含数字
+                    "uppercase": true, // 是否包含大写字母
+                    "lowercase": true, // 是否包含小写字母
+                    "specialchar": false, // 是否包含特殊字符，~!@#$%^&*()_+
+                    "excludechar": "", // 排除的字符
+                    "repeat": true, // 是否允许重复
+                },
+                _conf = Object.assign({}, _defaultConf, conf),
+                _chars = '',
+                _curChar = '',
+                res = '';
+
+            _conf.number && (_chars = _chars.concat(_number));
+            _conf.uppercase && (_chars = _chars.concat(_upperCase));
+            _conf.lowercase && (_chars = _chars.concat(_lowerCase));
+            _conf.specialchar && (_chars = _chars.concat(_specialChar));
+            _conf.excludechar.length && (_chars = _chars.replace(_conf.excludechar, ''));
+
+            if (_chars.length < len) _conf.repeat = true;
+            for (var i = 0; i < len; i++) {
+                _curChar = _chars[Math.floor(Math.random() * _chars.length)];
+                res += _curChar;
+                if (!_conf.repeat) _chars = _chars.replace(_curChar, '');
+            }
+
+            return res;
+        }
+    </script>
+</body>
+
+</html>
